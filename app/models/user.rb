@@ -6,6 +6,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+
+  def admin?
+   self.roles.map(&:name).include?("admin")
+  end
+  
   private
 
   def assign_default_role
