@@ -1,6 +1,10 @@
 
 <%= render @post %>
 
+
+<%= link_to "Create Comment", new_post_comment_path(@post) %>
+
+
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
