@@ -1,0 +1,23 @@
+<%= bootstrap_form_for( @user_profiles) do |form| %>
+      <% profile = current_user.user_profile %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+      <%= form.text_field :name, value: profile&.name %>
+      <%= form.text_field :address, value: profile&.address %>
+      <%= form.telephone_field :phone , value: profile&.phone %>
+      <% image = profile&.pictures&.last&.image%>
+      <%= image_tag(image)  if image.present?%> 
+      <%= form.file_field :image %>
+      
+    <div>
+     
+    </div>
+  
+    
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+  
+  
+  
+  

@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @comment = Comment.new(comment_params)
+    @comment.pictures.build(image: params[:comment][:image]) if params[:comment][:image].present?
     @comment.post_id = params[:post_id]
     @comment.user_id = current_user.id
 

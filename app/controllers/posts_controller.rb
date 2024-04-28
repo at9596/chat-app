@@ -3,7 +3,15 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = if params[:search]
+               Post.where("title LIKE ?", "%#{params[:search]}%")
+             else
+               Post.all
+             end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /posts/1 or /posts/1.json
@@ -24,6 +32,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
+    @post.pictures.build(image: params[:post][:image]) if params[:post][:image]
 
     respond_to do |format|
       if @post.save

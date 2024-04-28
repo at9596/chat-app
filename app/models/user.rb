@@ -8,6 +8,7 @@ class User < ApplicationRecord
   
   
   has_many :comments,dependent: :destroy
+  has_one :user_profile
   
 
   def admin?
