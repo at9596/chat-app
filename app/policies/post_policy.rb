@@ -1,8 +1,8 @@
 class PostPolicy< ApplicationPolicy
     def edit?
-      user.admin? if user.present?
+      user&.admin?
     end
     def update?
-      user.admin? if user.present?
+      user&.admin?
     end
   end

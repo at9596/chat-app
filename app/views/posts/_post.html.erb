@@ -8,3 +8,14 @@
     </p>
   </div>
 </div>
+
+<% if @comments.present? %>
+  Comments:
+  <%@comments.each do|comment|%>
+    <div class="card-body">
+    <p class="card-text">
+      <strong>Description:</strong> <%= comment.body %>
+    </p>
+  </div>
+  <%end%>
+<%end%>
