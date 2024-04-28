@@ -16,6 +16,7 @@
       <%if show_flash_msg.present?%>
        <div class="alert alert-info alert-dismissible fade show js-alert" role="alert"> <%= show_flash_msg %></div>
       <%end%>
+      <%= render  "shared/navbar" %>
     <%= yield %>
   </body>
 </html>
