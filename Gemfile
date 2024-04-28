@@ -73,3 +73,6 @@ end
 
 gem "devise", "~> 4.9"
 gem "rolify"
+
+gem "pundit", "~> 2.3"
+gem "bootstrap_form", "~> 5.4"
