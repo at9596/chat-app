@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h1 class="text-center">Instance Variables in Ruby</h1>
+      <p class="lead">
+        In Ruby, instance variables are variables that are associated with a particular instance of a class. They are prefixed with the <code>@</code> symbol followed by the variable name. Unlike local variables or global variables, which have limited scope, instance variables belong to individual objects (instances) of a class and can be accessed and modified by any method within that class.
+      </p>
+      <p>
+        <strong>Scoped to an Object:</strong> Each instance variable is associated with a specific object (instance of a class). This means that every object can have its own set of instance variables, and the values of these variables can vary between different instances of the same class.
+      </p>
+      <p>
+        <strong>Access Control:</strong> Instance variables are typically private to the object they belong to, meaning they cannot be accessed directly from outside the object's methods. However, they can be accessed and modified by the object's own methods.
+      </p>
+      <p>
+        <strong>Initialization:</strong> Instance variables are often initialized within the constructor method (<code>initialize</code>) of a class. This allows each instance of the class to have its own initial values for its instance variables.
+      </p>
+      <p>
+        <strong>Usage:</strong> Instance variables are commonly used to store the state or attributes of an object. For example, in a <code>Person</code> class, instance variables like <code>@name</code>, <code>@age</code>, and <code>@gender</code> could be used to store information about each person object.
+      </p>
+      <p>
+        <strong>Instance Variable Naming Convention:</strong> By convention, instance variables in Ruby typically start with the <code>@</code> symbol followed by a lowercase letter or underscore, followed by letters, digits, or underscores.
+      </p>
+      <p class="lead">
+        Here's a simple Ruby code example demonstrating the usage of instance variables:
+      </p>
+      <pre><code class="ruby">
+class Person
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    "Hi, my name is #{@name} and I am #{@age} years old."
+  end
+end
+
+person1 = Person.new("Alice", 30)
+person2 = Person.new("Bob", 25)
+
+puts person1.introduce
+puts person2.introduce
+      </code></pre>
+      <p>
+        In this example, <code>@name</code> and <code>@age</code> are instance variables belonging to each <code>Person</code> object. They store the name and age of each person, respectively, and can be accessed and utilized by the <code>introduce</code> method.
+      </p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-8 text-center">
+      <a href="<%=constants_ruby_tutorials_path%>" class="btn btn-primary">Next</a>
+    </div>
+  </div>
+</div>

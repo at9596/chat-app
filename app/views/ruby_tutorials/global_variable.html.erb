@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h1 class="text-center">Global Variables in Ruby</h1>
+      <p class="lead">
+        In Ruby, global variables are variables that are accessible from anywhere in the program. They have the prefix "$" followed by the variable name. Unlike local variables, which are limited in scope to the block of code where they are defined, global variables can be accessed and modified from any part of the program.
+      </p>
+      <p>
+      While global variables provide a convenient way to share data across different parts of a program, they can also lead to unexpected behavior and make the code harder to maintain. It's generally recommended to use global variables sparingly and prefer other means of sharing data, such as instance variables or method parameters.
+      </p>
+      <p>
+      Another crucial point to consider with global variables is their potential for unintended side effects. Since they can be modified from anywhere, changes made to global variables in one part of the program can affect the behavior of other parts of the program. This can make it difficult to track down bugs and understand the flow of data within the program.
+      </p>
+      <p>
+      Additionally, global variables can hinder code readability and maintainability, especially in larger projects with multiple developers. It's often challenging to keep track of all the global variables in a program and understand their interactions, leading to code that is difficult to understand and maintain over time.
+      </p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-8 text-center">
+      <%= link_to "Next", instance_variable_ruby_tutorials_path, class: 'btn btn-primary'%>
+    </div>
+  </div>
+</div>
