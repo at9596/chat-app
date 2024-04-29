@@ -3,9 +3,8 @@
     <h5 class="card-title">
       <strong>Title:</strong> <%= post.title %>
     </h5>
-    <p class="card-text">
-      <strong>Description:</strong> <%= post.description %>
-    </p>
+    <h6 class="card-subtitle mb-2 text-muted"><%= post.description %></h6>
+    <p class="card-text"><%= post.content%></p>
   </div>
 </div>
 
@@ -13,9 +12,10 @@
   Comments:
   <%@comments.each do|comment|%>
     <div class="card-body">
-    <p class="card-text">
-      <strong>Description:</strong> <%= comment.body %>
-    </p>
-  </div>
+      <p class="card-text">
+        <strong>Description:</strong> <%= comment.body %>
+      </p>
+      
+    </div>
   <%end%>
 <%end%>

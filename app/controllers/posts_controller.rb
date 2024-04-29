@@ -4,9 +4,9 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = if params[:search]
-               Post.where("title LIKE ?", "%#{params[:search]}%")
+               Post.where("title LIKE ?", "%#{params[:search]}%").with_rich_text_content_and_embeds
              else
-               Post.all
+               Post.all.with_rich_text_content_and_embeds
              end
     respond_to do |format|
       format.html
@@ -33,6 +33,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.pictures.build(image: params[:post][:image]) if params[:post][:image]
+    
 
     respond_to do |format|
       if @post.save
@@ -77,6 +78,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :description)
+      params.require(:post).permit(:title, :description, :content)
     end
 end
