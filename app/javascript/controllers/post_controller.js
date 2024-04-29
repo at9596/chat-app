@@ -41,7 +41,6 @@ export default class extends Controller {
   }
   resetSearch() {
     // Clear the search input and results
-    debugger
     this.inputTarget.value = "";
     this.resultsTarget.innerHTML = "";
   }

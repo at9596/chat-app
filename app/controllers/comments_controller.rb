@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
-    
+    authorize @comment
   end
 
   # GET /comments/1/edit
@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
+    authorize @comment
     @comment = Comment.new(comment_params)
     @comment.pictures.build(image: params[:comment][:image]) if params[:comment][:image].present?
     @comment.post_id = params[:post_id]
@@ -69,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :user_id, :post_id)
+      params.require(:comment).permit(:body, :user_id, :post_id, :content)
     end
 end
