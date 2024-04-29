@@ -10,4 +10,11 @@ module ApplicationHelper
                 end
         return msg
     end
+
+    def notification_count(user)
+        notifications = Notification.where(user_id: user.id, viewed: false)
+        notifications_count = notifications.count
+        return notifications_count.present? ? notifications_count : ''
+    end
+    
 end

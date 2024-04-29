@@ -29,6 +29,18 @@
             <%end%>
           </ul>
         </li>
+        <% if current_user.present? %>
+          <!-- Notification Button -->
+          <% notification_count= notification_count(current_user)%>
+          <li class="nav-item">
+          <a class="nav-link" href="<%="#{root_path}users/#{current_user.id}/notifications" %>">
+
+              <i class="bi bi-bell"></i> <!-- Assuming you're using Bootstrap icons, change this to your icon library -->
+              Notifications
+              <span class="badge bg-danger"><%=  notification_count%></span> <!-- Add a badge for notification count if needed -->
+            </a>
+          </li>
+        <%end%>
         <li class="nav-item">
           <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>

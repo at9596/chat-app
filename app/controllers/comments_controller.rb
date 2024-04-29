@@ -22,12 +22,13 @@ class CommentsController < ApplicationController
 
   # POST /comments or /comments.json
   def create
-    authorize @comment
+    
     @comment = Comment.new(comment_params)
+    authorize @comment
     @comment.pictures.build(image: params[:comment][:image]) if params[:comment][:image].present?
     @comment.post_id = params[:post_id]
     @comment.user_id = current_user.id
-
+    
     respond_to do |format|
       if @comment.save
         format.html { redirect_back fallback_location: root_path   , notice: "Comment was successfully created." }
@@ -39,11 +40,11 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1 or /comments/1.json
+  
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
+        format.html { redirect_to post_comment_path(params[:post_id], params[:id]), notice: "Comment was successfully updated." }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit, status: :unprocessable_entity }

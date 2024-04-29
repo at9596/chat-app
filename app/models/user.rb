@@ -9,7 +9,8 @@ class User < ApplicationRecord
   
   has_many :comments,dependent: :destroy
   has_one :user_profile
-  
+  has_many :posts
+  has_many :notifications
 
   def admin?
    self.roles.map(&:name).include?("admin")
