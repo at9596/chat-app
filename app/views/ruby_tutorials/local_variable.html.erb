@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h1 class="text-center">Local Variables in Ruby</h1>
+      <p class="lead">
+        Local variables in Ruby are variables that are defined within a method and are only accessible within that method's scope. They are prefixed with a lowercase letter or an underscore (_) and can be assigned a value of any data type.
+      </p>
+      <p>
+        Local variables have a limited lifespan and are created each time the method is called. They exist only as long as the method is executing and are automatically destroyed once the method exits.
+      </p>
+      <p>
+        It's important to note that local variables cannot be accessed outside the method in which they are defined. Attempting to access a local variable from outside its scope will result in an error.
+      </p>
+      <p>
+        Ruby has dynamic typing, meaning the type of a local variable is determined at runtime based on the value assigned to it. This allows flexibility in assigning different types of values to a variable during the execution of the program.
+      </p>
+      <p>
+        Local variables can also be shadowed by variables with the same name in an inner scope. In such cases, the inner variable takes precedence over the outer variable within its scope.
+      </p>
+      <h2>Usage of Local Variables</h2>
+      <p>
+        Here's an example demonstrating the usage of local variables in Ruby:
+      </p>
+      <pre><code class="ruby">
+def greet(name)
+  greeting = "Hello, #{name}!"  # Define a local variable named 'greeting'
+  puts greeting                  # Output the greeting
+end
+
+greet("Alice")  # Call the method with the argument "Alice"
+      </code></pre>
+      <p>
+        In this example, <code>greeting</code> is a local variable defined within the <code>greet</code> method. It stores the greeting message constructed using the <code>name</code> parameter passed to the method.
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-8 text-center">
+      <%= link_to "Next", strings_path, class: 'btn btn-primary'%>
+    </div>
+  </div>
+</div>
+  

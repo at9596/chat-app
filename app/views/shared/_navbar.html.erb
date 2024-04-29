@@ -37,18 +37,18 @@
 
               <i class="bi bi-bell"></i> <!-- Assuming you're using Bootstrap icons, change this to your icon library -->
               Notifications
-              <span class="badge bg-danger"><%=  notification_count%></span> <!-- Add a badge for notification count if needed -->
+              <span class="badge bg-danger"><%=notification_count%></span> <!-- Add a badge for notification count if needed -->
             </a>
           </li>
         <%end%>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarrDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ruby Tutorial
+          </a>
+          <%= render "shared/ruby_tutorial"%>
         </li>
+       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>

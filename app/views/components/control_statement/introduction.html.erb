@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction to Control Statements in Ruby on Rails</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    code {
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Introduction to Control Statements in Ruby on Rails</h1>
+    <p>In Ruby on Rails, control statements work similarly to how they do in plain Ruby, as Rails is built on top of the Ruby programming language. Control statements are used to control the flow of execution within Rails views, controllers, and helpers.</p>
+
+    <h2>In Views (ERB Templates)</h2>
+    <p>In Rails views, ERB templates allow you to embed Ruby code within HTML markup. Control statements can be used to conditionally render HTML elements or display dynamic content based on certain conditions.</p>
+    <pre><code>&lt;% if @user.admin? %&gt;
+  &lt;p&gt;Welcome, Admin!&lt;/p&gt;
+&lt;% else %&gt;
+  &lt;p&gt;Welcome, User!&lt;/p&gt;
+&lt;% end %&gt;
+</code></pre>
+
+    <h2>In Controllers</h2>
+    <p>Rails controllers handle the application logic and can use control statements to control the flow of execution based on parameters or user input.</p>
+    <pre><code>class UsersController &lt; ApplicationController
+  def show
+    @user = User.find(params[:id])
+    if @user.admin?
+      # Do something for admin users
+    else
+      # Do something for regular users
+    end
+  end
+end
+</code></pre>
+
+    <h2>In Helpers</h2>
+    <p>Rails helpers provide utility methods for views and controllers. Control statements can be used within helpers to generate dynamic content or perform conditional logic.</p>
+    <pre><code>module ApplicationHelper
+  def greeting_message(user)
+    if user.admin?
+      "Welcome, Admin!"
+    else
+      "Welcome, User!"
+    end
+  end
+end
+</code></pre>
+
+    <p>Overall, control statements in Rails allow you to build dynamic and responsive web applications by controlling the flow of execution based on specific conditions.</p>
+    <p><em>We'll cover more about control statements and other advanced Rails topics in upcoming tutorials. Stay tuned!</em></p>
+  </div>
+</body>
+</html>

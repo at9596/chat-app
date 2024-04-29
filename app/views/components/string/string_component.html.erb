@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        
+        <h1 class="display-4"><%= @value%></h1>
+        <p class="lead">In Ruby on Rails, a "string" is a fundamental data type representing a sequence of characters or text data.</p>
+        <p class="text-muted">Strings are commonly used for storing text data, such as names, messages, titles, etc., in models or controllers.</p>
+        <p class="text-muted">You can create strings using single quotes (`'`) or double quotes (`"`), and they can contain escape sequences such as `\n` for newline or `\t` for tab.</p>
+      </div>
+      <div class="col-md-6">
+        <h2 class="display-6">Example Usage in Ruby on Rails</h2>
+        <p class="text-muted">Here's an example of using strings in Ruby on Rails:</p>
+        <pre><code>&lt;% name = "John" %&gt;
+&lt;% message = 'Hello, world!' %&gt;
+</code></pre>
+        <p class="text-muted">Both single and double quoted strings can contain interpolation, which allows you to embed Ruby expressions directly into strings.</p>
+        <pre><code>&lt;% name = "John" %&gt;
+&lt;% greeting = "Hello, #{name}!" %&gt;
+</code></pre>
+        <p class="text-muted">Strings can also be concatenated using the `+` operator or the `<<` operator:</p>
+        <pre><code>&lt;% first_name = "John" %&gt;
+&lt;% last_name = "Doe" %&gt;
+&lt;% full_name = first_name + " " + last_name %&gt;
+</code></pre>
+        <p class="text-muted">String manipulation methods such as `upcase`, `downcase`, `capitalize`, `gsub`, `split`, `strip`, etc., are available for working with strings in Ruby on Rails.</p>
+        <p class="text-muted">If you want to deep dive, you can read more about strings in Ruby on the official documentation: <a href="https://ruby-doc.org/3.2.2/String.html">Ruby String Documentation</a></p>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+    <div class="col-lg-8 text-center">
+      <%= link_to "Next", strings_path, class: 'btn btn-primary'%>
+    </div>
+  </div>
+  </div>

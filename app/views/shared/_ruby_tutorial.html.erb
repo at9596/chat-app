@@ -1,0 +1,13 @@
+<ul class="dropdown-menu" aria-labelledby="navbarrDropdown">      
+    <li><a class="dropdown-item" href="<%=introduction_ruby_tutorials_path%>">Introduction</a></li>
+    <li class="dropdown">
+        <a class="dropdown-item dropdown-toggle" href="#" role="button" id="variablesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Variables
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="variablesDropdown">
+            <li><%= link_to "Global Variables",  "#", class: 'btn dropdown-item' %></li>
+            <li><%= link_to "Constants",  "#", class: 'btn dropdown-item' %></li>
+        </ul>
+    </li>
+          
+</ul>

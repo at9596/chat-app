@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <h1 class="text-center">Constants in Ruby</h1>
+      <p class="lead">
+        Constants in Ruby are variables whose values typically do not change during the execution of a program. They are declared using all uppercase letters and can be accessed from anywhere within the program.
+      </p>
+      <p>
+        Constants provide a way to define values that should remain consistent throughout the execution of a program. Common examples of constants include mathematical constants (e.g., Pi), configuration settings, and values representing fixed entities in the domain of the program.
+      </p>
+      <p>
+        Unlike variables, Ruby constants are not truly immutable. Although it's convention to treat them as immutable, it's technically possible to change the value of a constant, but it will generate a warning.
+      </p>
+      <p>
+        It's important to note that while Ruby allows you to change the value of a constant, it's considered bad practice and should be avoided. Constants should be used for values that are intended to remain constant throughout the program's execution.
+      </p>
+      <h2>Usage of Constants</h2>
+      <p>
+        Here's an example demonstrating the usage of constants in Ruby:
+      </p>
+      <pre><code class="ruby">
+class Circle
+  PI = 3.14159
+
+  def initialize(radius)
+    @radius = radius
+  end
+
+  def area
+    PI * @radius * @radius
+  end
+end
+
+circle = Circle.new(5)
+puts "Area of the circle: #{circle.area}"
+      </code></pre>
+      <p>
+        In this example, <code>PI</code> is a constant representing the mathematical constant Pi. It's used within the <code>Circle</code> class to calculate the area of a circle. Constants provide a convenient and readable way to define and use fixed values in Ruby programs.
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-lg-8 text-center">
+      <%= link_to "Next", local_variable_ruby_tutorials_path, class: 'btn btn-primary'%>
+    </div>
+  </div>
+</div>

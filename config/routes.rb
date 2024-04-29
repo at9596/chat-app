@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  
   root 'home#index'
+  resources :strings, only: [:index]
+  resources :ruby_tutorials, except: [:show] do
+    collection do
+      get :introduction
+      get :global_variable
+      get :instance_variable
+      get :local_variable
+      get :constants
+    end
+  end
+
   resources :users do
     resources :notifications do
       member do
