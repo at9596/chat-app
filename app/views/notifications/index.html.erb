@@ -1,0 +1,10 @@
+<% if @notifications.present? %>
+  <% @notifications.each do |notification| %>
+    <div class="notification">
+      <%= notification.id %>
+      <%= notification.notification_type %>
+      <%= link_to "Show comment", post_comment_path(notification.post_id, notification.notifiable_id), class: "btn btn-primary" %>
+      <% update_notification(notification) %>
+    </div>
+  <% end %>
+<% end %>
