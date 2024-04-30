@@ -1,0 +1,34 @@
+
+<!-- Modal -->
+<%= javascript_include_tag 'report_modal' %>
+<div class="modal fade" id="newReportFormModal" tabindex="-1" aria-labelledby="newReportFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newReportFormModalLabel">Report Comment</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form for reporting a comment -->
+        <%= form_with(url: '#', id: 'reportForm', method: :post, local: true) do |form| %>
+          <div class="mb-3">
+            <%= form.label :reason, "Reason for Reporting", class: 'form-label' %>
+            <%= form.text_field :reason, class: 'form-control', required: true %>
+          </div>
+          <div class="mb-3">
+            <%= form.label :details, "Additional Details", class: 'form-label' %>
+            <%= form.text_area :details, class: 'form-control', rows: 3 %>
+          </div>
+          <%= form.submit "Submit Report", class: 'btn btn-danger' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
