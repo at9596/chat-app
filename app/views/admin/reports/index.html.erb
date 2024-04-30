@@ -1,0 +1,38 @@
+<% if @reports.present? %>
+<div class="container mt-3">
+        <div class="row justify-content-end mb-3">
+            <div class="col-auto">
+            <%= link_to details_generate_pdf_admin_reports_path, class: "btn btn-primary" do %>
+            <i class="fas fa-download"></i> Download Report Details PDF
+            <% end %>
+        </div>
+        <div class="col-auto">
+            <%= link_to generate_pdf_admin_reports_path, class: "btn btn-primary" do %>
+            <i class="fas fa-download"></i> Download Report PDF
+            <% end %>
+        </div>
+    </div>
+  
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reports.each do |report| %>
+          <tr>
+            <td><%= report.id %></td>
+            <td><%= report.reason %></td>
+            <td><%= report.details %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="lead text-center">There are no reports.</p>
+<% end %>
