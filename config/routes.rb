@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  draw(:admin)
   root 'home#index'
   resources :strings, only: [:index]
   resources :ruby_tutorials, except: [:show] do
@@ -24,7 +26,9 @@ Rails.application.routes.draw do
   end
   resources :user_profiles, only: [:new, :create]
   resources :posts do
-    resources :comments, only: [:new, :create, :edit, :update, :destroy, :show]
+    resources :comments, only: [:new, :create, :edit, :update, :destroy, :show] do
+      resources :reports, only: [:new, :create]
+    end
   end
   devise_for :users
   
