@@ -10,12 +10,27 @@
 
 <% if @comments.present? %>
   Comments:
+  <table class="table">
+  
+  <tr>
+   <th>Body</th>
+   <th>Action</th>
+  <tr>
+  
+  <tbody>
+  
   <%@comments.each do|comment|%>
-    <div class="card-body">
-      <p class="card-text">
-        <strong>Description:</strong> <%= comment.body %>
-      </p>
-      
-    </div>
+    <tr>
+    <td><%= comment.body %></td>
+    <td><%= link_to "#",
+            class: 'btn btn-outline-danger dropdown-item',
+            data: { bs_toggle: "modal", bs_target: "#newReportFormModal", comment_id: comment.id, post_id: params[:id]}  do%>
+            <i class="fas fa-flag"></i> Report
+            <%end%></td>
+    </tr>
   <%end%>
+  </tbody>
+  </table>
 <%end%>
+
+<%= render 'shared/report_form_model'%>

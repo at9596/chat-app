@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :post
   has_many :pictures, as: :imagable
   has_rich_text :content
+  has_many :reports
   after_create :create_notification
    private
     def create_notification
