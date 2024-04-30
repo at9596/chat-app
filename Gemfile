@@ -77,3 +77,5 @@ gem "rolify"
 gem "pundit", "~> 2.3"
 gem "bootstrap_form", "~> 5.4"
 gem "view_component"
+gem 'prawn'
+gem 'prawn-table'

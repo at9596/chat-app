@@ -22,6 +22,7 @@
                 <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: 'btn btn-outline-danger dropdown-item' %></li>
                   <%if current_user.admin?%>
                    <li><a class="dropdown-item" href="<%= new_post_path%>">Create Post</a></li>
+                   <li><a class="dropdown-item" href="<%= admin_reports_path%>">All Reports</a></li>
                   <%end%>
             <%else%>
              <li><a class="dropdown-item btn btn-primary" href="<%= new_user_registration_path%>">Sign Up</a></li>
@@ -52,3 +53,4 @@
     </div>
   </div>
 </nav>
+
