@@ -1,0 +1,82 @@
+<%= form_tag create_payment_intent_path, id: 'payment-form' do %>
+    <div class="form-row">
+      <label for="card-element">
+        Credit or debit card
+      </label>
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+      </div>
+  
+      <!-- Used to display form errors. -->
+      <div id="card-errors" role="alert"></div>
+    </div>
+  
+    <!-- Hidden fields for additional parameters -->
+    email<%= text_field_tag :stripeEmail %>
+    
+    <button id = 'submit-button'>Submit Payment</button>
+  <% end %>
+  
+  
+  <script>
+    var stripe = Stripe('<%= Rails.configuration.stripe[:publishable_key] %>');
+    var elements = stripe.elements();
+    var card = elements.create('card');
+    card.mount('#card-element');
+
+    var form = document.getElementById('payment-form');
+    var submitButton = document.getElementById('submit-button');
+
+    form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Disable the submit button to prevent multiple submissions
+    submitButton.disabled = true;
+
+    stripe.createPaymentMethod({
+        type: 'card',
+        card: card,
+        billing_details: {
+        email: document.getElementById('stripeEmail').value
+        }
+    }).then(function(paymentMethodResult) {
+        if (paymentMethodResult.error) {
+        // Display error message to the user
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = paymentMethodResult.error.message;
+        // Enable the submit button again
+        submitButton.disabled = false;
+        } else {
+        // Payment method created, append payment method ID to the form and submit
+        var paymentMethodInput = document.createElement('input');
+        paymentMethodInput.setAttribute('type', 'hidden');
+        paymentMethodInput.setAttribute('name', 'payment_method_id');
+        paymentMethodInput.setAttribute('value', paymentMethodResult.paymentMethod.id);
+        form.appendChild(paymentMethodInput);
+        // Now create token
+        stripe.createToken(card, { email: document.getElementById('stripeEmail').value }).then(function(tokenResult) {
+            if (tokenResult.error) {
+            // Display error message to the user
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = tokenResult.error.message;
+            // Enable the submit button again
+            submitButton.disabled = false;
+            } else {
+            // Token created, append token to the form and submit
+            var tokenInput = document.createElement('input');
+            tokenInput.setAttribute('type', 'hidden');
+            tokenInput.setAttribute('name', 'stripeToken');
+            tokenInput.setAttribute('value', tokenResult.token.id);
+            form.appendChild(tokenInput);
+            // Now submit the form
+            form.submit();
+            }
+        });
+        }
+    }).catch(function(error) {
+        // Handle other errors, if any
+        console.error('Error:', error);
+        // Enable the submit button again
+        submitButton.disabled = false;
+    });
+    });
+</script>
