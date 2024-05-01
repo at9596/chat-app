@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'payments/buy_form', to: 'payments#buy_form',as: :buy_form
+  post 'payments/create_payment_intent', to: 'payments#create_payment_intent', as: :create_payment_intent
+ 
+  resources :products
   
   draw(:admin)
   root 'home#index'

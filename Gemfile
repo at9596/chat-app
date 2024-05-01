@@ -56,7 +56,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-
+  gem "better_errors"
+  gem "binding_of_caller"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -79,3 +80,4 @@ gem "bootstrap_form", "~> 5.4"
 gem "view_component"
 gem 'prawn'
 gem 'prawn-table'
+gem 'stripe'
