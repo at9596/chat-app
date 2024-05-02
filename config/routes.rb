@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
+  get 'tokens/sign_in' ,to: 'tokens#signin'
   get 'payments/buy_form', to: 'payments#buy_form',as: :buy_form
   post 'payments/create_payment_intent', to: 'payments#create_payment_intent', as: :create_payment_intent
  
@@ -34,6 +40,6 @@ Rails.application.routes.draw do
       resources :reports, only: [:new, :create]
     end
   end
-  devise_for :users
+ 
   
 end
