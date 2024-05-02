@@ -83,3 +83,7 @@ gem "view_component"
 gem 'prawn'
 gem 'prawn-table'
 gem 'stripe'
+gem 'jwt'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'  # Example for Google
+gem "omniauth-rails_csrf_protection"
