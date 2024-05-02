@@ -1,10 +1,13 @@
 module ApplicationHelper
     def show_flash_msg
+        success = flash[:success]
         msg =   case
                 when alert.present?
                 alert
                 when notice.present?
                 notice
+                when success.present?
+                success
                 else
                 nil  
                 end
