@@ -20,5 +20,10 @@ module ChatApp
     # config.eager_load_paths << Rails.root.join("extras")
     config.view_component.view_component_path = "app/views/components"
     config.eager_load_paths << Rails.root.join("app/views/components")
+    # Don't generate system test files.
+    config.generators do |g|
+      g.test_framework nil  # This disables all test framework generators
+      g.fixture_replacement nil
+    end
   end
 end

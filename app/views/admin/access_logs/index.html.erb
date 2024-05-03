@@ -1,0 +1,35 @@
+<% if @access_logs.present? %>
+<div class="container mt-3">
+       
+  
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">IP</th>
+          <th scope="col">Browser</th>
+          <th scope="col">Log With</th>
+          <th scope="col">Log In Time</th>
+          <th scope="col">Logout Time</th>
+          <th scope="col">Country</th>
+          <th scope="col">Roles</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @access_logs.each do |access_log| %>
+          <tr>
+            <td><%= access_log.ip_address %></td>
+            <td><%= access_log.browser %></td>
+            <td><%= access_log.login_with %></td>
+            <td><%= access_log.login_time %></td>
+            <td><%= access_log.logout_time %></td>
+            <td><%= access_log.country_name %></td>
+            <td><%= access_log.user.roles.uniq.map(&:name).join(', ') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p class="lead text-center">There are no reports.</p>
+<% end %>
