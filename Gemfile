@@ -87,3 +87,7 @@ gem 'jwt'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'  # Example for Google
 gem "omniauth-rails_csrf_protection"
+
+gem 'useragent'
+gem 'geocoder'
+gem 'sidekiq', '~> 7.1', '>= 7.1.2'

@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_one :user_profile
   has_many :posts
   has_many :notifications
-
+  has_many :access_logs
   def admin?
    self.roles.map(&:name).include?("admin")
   end
