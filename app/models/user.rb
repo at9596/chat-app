@@ -1,19 +1,23 @@
 class User < ApplicationRecord
-  has_one_attached :image
-  after_create :assign_default_role
-  rolify
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+   # Associations
+   has_one_attached :image
+   has_one :user_profile
+   has_many :comments, dependent: :destroy
+   has_many :posts
+   has_many :notifications
+   has_many :access_logs
+
+  # Devise modules
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2]
+  :recoverable, :rememberable, :validatable,
+  :omniauthable, omniauth_providers: [:google_oauth2]
+  # Rolify
+  rolify
+
+  # Callbacks
+  after_create :assign_default_role
   
-  
-  has_many :comments,dependent: :destroy
-  has_one :user_profile
-  has_many :posts
-  has_many :notifications
-  has_many :access_logs
+  # Methods
   def admin?
    self.roles.map(&:name).include?("admin")
   end

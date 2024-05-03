@@ -17,8 +17,8 @@ class Users::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def destroy
-     access_log = current_user.access_logs.last
-     access_log.update(logout_time: Time.zone.now)
+     access_log = current_user.access_logs.where(logout_time: nil).last
+     access_log&.update(logout_time: Time.zone.now)
     super
   end
 
