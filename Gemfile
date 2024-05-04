@@ -91,3 +91,5 @@ gem "omniauth-rails_csrf_protection"
 gem 'useragent'
 gem 'geocoder'
 gem 'sidekiq', '~> 7.1', '>= 7.1.2'
+gem "faker", "~> 3.3"
+gem 'write_xlsx', '~> 0.83.0'
